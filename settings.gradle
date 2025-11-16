@@ -1,0 +1,8 @@
+rootProject.name = "parallel-lab-2"
+
+include(
+    "common",
+    "producer",
+    "worker",
+    "aggregator"
+)

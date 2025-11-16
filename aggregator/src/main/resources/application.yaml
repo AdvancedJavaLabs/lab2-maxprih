@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: aggregator
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+results:
+  base-path: ${RESULTS_BASE_PATH:results}
+  max-completed: ${RESULTS_MAX_COMPLETED:200}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+listener:
+  concurrency: ${LISTENER_CONCURRENCY:2}
+  max-concurrency: ${LISTENER_MAX_CONCURRENCY:8}
+  prefetch: ${LISTENER_PREFETCH:10}

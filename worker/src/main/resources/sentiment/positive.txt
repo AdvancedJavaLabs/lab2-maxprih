@@ -1,0 +1,34 @@
+# English
+good
+great
+excellent
+happy
+love
+loves
+lovely
+wonderful
+amazing
+awesome
+beautiful
+brilliant
+success
+win
+enjoy
+like
+likes
+
+# Russian
+хороший
+хорошо
+прекрасный
+прекрасно
+отличный
+радость
+рад
+счастлив
+счастливый
+люблю
+нравится
+замечательно
+великолепно
+

@@ -1,0 +1,64 @@
+services:
+  rabbit:
+    image: rabbitmq:3.13-management
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  aggregator:
+    build:
+      context: .
+      args:
+        SERVICE: aggregator
+    environment:
+      RABBITMQ_HOST: rabbit
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USERNAME: guest
+      RABBITMQ_PASSWORD: guest
+      RESULTS_BASE_PATH: /results
+      SERVER_PORT: 8080
+      LISTENER_CONCURRENCY: 8
+      LISTENER_MAX_CONCURRENCY: 16
+      LISTENER_PREFETCH: 40
+      RESULTS_MAX_COMPLETED: 1000
+      JAVA_TOOL_OPTIONS: "-Xms3g -Xmx6g"
+    depends_on:
+      - rabbit
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./results:/results
+
+  worker:
+    build:
+      context: .
+      args:
+        SERVICE: worker
+    environment:
+      RABBITMQ_HOST: rabbit
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USERNAME: guest
+      RABBITMQ_PASSWORD: guest
+      LISTENER_CONCURRENCY: 8
+      LISTENER_MAX_CONCURRENCY: 16
+      LISTENER_PREFETCH: 10
+    depends_on:
+      - rabbit
+
+  producer:
+    build:
+      context: .
+      args:
+        SERVICE: producer
+    environment:
+      RABBITMQ_HOST: rabbit
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USERNAME: guest
+      RABBITMQ_PASSWORD: guest
+      SERVER_PORT: 8080
+    depends_on:
+      - rabbit
+    ports:
+      - "8080:8080"
+
