@@ -1,0 +1,34 @@
+# English
+bad
+terrible
+awful
+sad
+hate
+hates
+horrible
+horrific
+poor
+ugly
+angry
+angrier
+fail
+failure
+pain
+problem
+
+# Russian
+плохой
+плохо
+ужасный
+ужасно
+кошмарный
+ненавижу
+ненависть
+злой
+злится
+печальный
+печально
+грустный
+грустно
+страшно
+

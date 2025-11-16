@@ -1,0 +1,50 @@
+[
+  {
+    "workers": 1,
+    "paragraphs": 100,
+    "runs": 10,
+    "avg_throughput": 90.6901693177784,
+    "avg_latency": 0.08539108059435009,
+    "avg_p95_latency": 0.12437498472999917
+  },
+  {
+    "workers": 2,
+    "paragraphs": 100,
+    "runs": 10,
+    "avg_throughput": 110.50391342411758,
+    "avg_latency": 0.0729364977608663,
+    "avg_p95_latency": 0.12285677363000154
+  },
+  {
+    "workers": 3,
+    "paragraphs": 100,
+    "runs": 10,
+    "avg_throughput": 124.74595567950422,
+    "avg_latency": 0.06254027620109805,
+    "avg_p95_latency": 0.12239843155500693
+  },
+  {
+    "workers": 4,
+    "paragraphs": 100,
+    "runs": 10,
+    "avg_throughput": 135.9913482210563,
+    "avg_latency": 0.05707590860118762,
+    "avg_p95_latency": 0.12187638017999675
+  },
+  {
+    "workers": 5,
+    "paragraphs": 100,
+    "runs": 10,
+    "avg_throughput": 130.0790103236877,
+    "avg_latency": 0.06046991586046544,
+    "avg_p95_latency": 0.12250407169999804
+  },
+  {
+    "workers": 6,
+    "paragraphs": 100,
+    "runs": 10,
+    "avg_throughput": 133.4055226562745,
+    "avg_latency": 0.05850620988921213,
+    "avg_p95_latency": 0.121806442040006
+  }
+]

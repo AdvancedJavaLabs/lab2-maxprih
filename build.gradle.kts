@@ -1,29 +1,42 @@
 plugins {
-    kotlin("jvm") version "1.9.20"
-    application
+    id("org.springframework.boot") version "3.3.4" apply false
+    id("io.spring.dependency-management") version "1.1.6" apply false
+    java
 }
 
 group = "org.itmo"
-version = "1.0-SNAPSHOT"
+version = "0.0.1-SNAPSHOT"
 
-repositories {
-    mavenCentral()
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
-dependencies {
-    implementation("javax.jms:jms-api:2.0.1")
-    implementation("org.apache.activemq:activemq-broker:6.1.1")
-    testImplementation(kotlin("test"))
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
+subprojects {
+    apply(plugin = "java")
+    apply(plugin = "io.spring.dependency-management")
 
-kotlin {
-    jvmToolchain(8)
-}
+    group = "org.itmo"
+    version = "0.0.1-SNAPSHOT"
 
-application {
-    mainClass.set("MainKt")
+    java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    dependencies {
+        constraints {
+            add("implementation", "com.example.text:common:$version")
+        }
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }

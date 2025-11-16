@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: worker
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+sentiment:
+  lexicon:
+    positive: ${SENTIMENT_POSITIVE:classpath:sentiment/positive.txt}
+    negative: ${SENTIMENT_NEGATIVE:classpath:sentiment/negative.txt}
+listener:
+  concurrency: ${LISTENER_CONCURRENCY:1}
+  max-concurrency: ${LISTENER_MAX_CONCURRENCY:4}
+  prefetch: ${LISTENER_PREFETCH:1}
+
